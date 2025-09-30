@@ -1,0 +1,13 @@
+{% extends 'recetas/base.html' %}
+
+{% block title %}Mensaje Enviado{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="alert alert-success text-center">
+        <h2>¡Gracias por contactarnos!</h2>
+        <p>Tu mensaje ha sido enviado correctamente. Te responderemos pronto.</p>
+        <a href="{% url 'inicio' %}" class="btn btn-primary">Volver al Inicio</a>
+    </div>
+</div>
+{% endblock %}

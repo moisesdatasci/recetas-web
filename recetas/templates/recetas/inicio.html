@@ -1,0 +1,39 @@
+{% extends 'recetas/base.html' %}
+
+{% block title %}Inicio - Recetas{% endblock %}
+
+{% block content %}
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">¡Bienvenido a Recetas Web!</h1>
+            <p class="lead">Descubre las mejores recetas caseras y comparte tus favoritas con nuestra comunidad.</p>
+            <hr class="my-4">
+            <p>Explora nuestra colección de recetas deliciosas y fáciles de preparar.</p>
+            <a class="btn btn-primary btn-lg" href="{% url 'lista_recetas' %}" role="button">Ver Recetas</a>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Últimas Recetas</h2>
+    <div class="row">
+        {% for receta in recetas %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if receta.imagen %}
+                <img src="{{ receta.imagen.url }}" class="card-img-top" alt="{{ receta.nombre }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ receta.nombre }}</h5>
+                    <p class="card-text">{{ receta.ingredientes|truncatewords:15 }}</p>
+                    <a href="{% url 'detalle_receta' receta.id %}" class="btn btn-primary">Ver Receta</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No hay recetas disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

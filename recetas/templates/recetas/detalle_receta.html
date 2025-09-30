@@ -1,0 +1,30 @@
+{% extends 'recetas/base.html' %}
+
+{% block title %}{{ receta.nombre }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    {% if receta %}
+    <div class="row">
+        <div class="col-md-6">
+            {% if receta.imagen %}
+            <img src="{{ receta.imagen.url }}" class="img-fluid rounded" alt="{{ receta.nombre }}">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h1>{{ receta.nombre }}</h1>
+            <hr>
+            <h3>Ingredientes:</h3>
+            <p>{{ receta.ingredientes|linebreaks }}</p>
+            
+            <h3>Instrucciones:</h3>
+            <p>{{ receta.instrucciones|linebreaks }}</p>
+            
+            <a href="{% url 'lista_recetas' %}" class="btn btn-secondary mt-3">Volver a Recetas</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning">Receta no encontrada.</div>
+    {% endif %}
+</div>
+{% endblock %}
