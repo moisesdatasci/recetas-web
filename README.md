@@ -197,7 +197,7 @@ Edita el archivo `static/css/estilos.css` para personalizar:
 
 ## 👥 Autores
 
-- ** Moisés Ortega - Sin grupo** - Desarrollo completo
+- Moisés Ortega - Sin grupo - Desarrollo completo
 
 ## 📄 Licencia
 
